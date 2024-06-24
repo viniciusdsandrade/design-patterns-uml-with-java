@@ -3,7 +3,6 @@ import Validadores.ValidadorHorarioAntecedencia;
 import Validadores.ValidadorHorarioFuncionamentoClinica;
 import dto.DadosAgendamentoConsulta;
 import enumerate.Especialidade;
-import service.AgendaService;
 import service.AgendaServiceImplementado;
 import service.RepositorioAgendamentos;
 import Exception.ValidacaoException;
@@ -16,19 +15,21 @@ import java.util.List;
 public class SistemaAgendamentoConsultas {
 
     public static void main(String[] args) {
+        // Configuração do repositório e validadores
         RepositorioAgendamentos repositorio = new RepositorioAgendamentosEmMemoria();
         List<ValidadorAgendamentoConsulta> validadores = new ArrayList<>();
         validadores.add(new ValidadorHorarioAntecedencia());
         validadores.add(new ValidadorHorarioFuncionamentoClinica());
 
-        AgendaService agendaService = new AgendaServiceImplementado(validadores, repositorio);
+        // Instanciação do serviço de agendamento
+        AgendaServiceImplementado agendaService = new AgendaServiceImplementado(validadores, repositorio);
 
         // Teste 1: Agendamento com sucesso
         DadosAgendamentoConsulta dadosConsulta1 = new DadosAgendamentoConsulta(
                 "João",
                 "Silva",
                 Especialidade.CARDIOLOGIA,
-                LocalDateTime.now().plusHours(1)
+                LocalDateTime.now().plusDays(1).withHour(10).withMinute(0)
         );
         try {
             String resultado1 = agendaService.agendar(dadosConsulta1);
@@ -56,7 +57,8 @@ public class SistemaAgendamentoConsultas {
                 "Pedro",
                 "Oliveira",
                 Especialidade.ORTOPEDIA,
-                LocalDateTime.now().plusDays(1).withHour(20));
+                LocalDateTime.now().plusDays(1).withHour(20)
+        );
         try {
             String resultado3 = agendaService.agendar(dadosConsulta3);
             System.out.println("Teste 3: " + resultado3);
