@@ -1,0 +1,14 @@
+package enumerate;
+
+public enum Especialidade {
+    CARDIOLOGIA,
+    DERMATOLOGIA,
+    ENDOCRINOLOGIA,
+    GINECOLOGIA,
+    NEUROLOGIA,
+    OFTALMOLOGIA,
+    ORTOPEDIA,
+    OTORRINOLARINGOLOGIA,
+    PEDIATRIA,
+    PSIQUIATRIA
+}
