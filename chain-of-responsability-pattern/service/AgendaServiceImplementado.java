@@ -1,6 +1,6 @@
 package service;
 
-import Validadores.ValidadorAgendamentoConsulta;
+import validators.ValidadorAgendamentoConsulta;
 import Exception.ValidacaoException;
 import dto.DadosAgendamentoConsulta;
 

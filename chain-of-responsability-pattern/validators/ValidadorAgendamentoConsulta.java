@@ -1,4 +1,4 @@
-package Validadores;
+package validators;
 
 import dto.DadosAgendamentoConsulta;
 import Exception.ValidacaoException;
@@ -18,5 +18,5 @@ public interface ValidadorAgendamentoConsulta {
      * @throws ValidacaoException Se os dados forem inválidos,
      *                           uma exceção deve ser lançada.
      */
-    void validar(DadosAgendamentoConsulta dados);
+    void validar(DadosAgendamentoConsulta dados) throws ValidacaoException;
 }

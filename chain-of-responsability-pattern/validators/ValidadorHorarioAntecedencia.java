@@ -1,4 +1,4 @@
-package Validadores;
+package validators;
 
 import dto.DadosAgendamentoConsulta;
 

@@ -1,6 +1,7 @@
-import Validadores.ValidadorAgendamentoConsulta;
-import Validadores.ValidadorHorarioAntecedencia;
-import Validadores.ValidadorHorarioFuncionamentoClinica;
+import validators.ValidadorAgendamentoConsulta;
+import validators.ValidadorDiaDeFuncionamentoClinica;
+import validators.ValidadorHorarioAntecedencia;
+import validators.ValidadorHorarioFuncionamentoClinica;
 import dto.DadosAgendamentoConsulta;
 import enumerate.Especialidade;
 import service.AgendaServiceImplementado;
@@ -20,6 +21,7 @@ public class SistemaAgendamentoConsultas {
         List<ValidadorAgendamentoConsulta> validadores = new ArrayList<>();
         validadores.add(new ValidadorHorarioAntecedencia());
         validadores.add(new ValidadorHorarioFuncionamentoClinica());
+        validadores.add(new ValidadorDiaDeFuncionamentoClinica());
 
         // Instanciação do serviço de agendamento
         AgendaServiceImplementado agendaService = new AgendaServiceImplementado(validadores, repositorio);
@@ -64,6 +66,20 @@ public class SistemaAgendamentoConsultas {
             System.out.println("Teste 3: " + resultado3);
         } catch (ValidacaoException e) {
             System.out.println("Teste 3: " + e.getMessage());
+        }
+
+        // Teste 4: Agendamento em um dia fora de funcionamento (Domingo)
+        DadosAgendamentoConsulta dadosConsulta4 = new DadosAgendamentoConsulta(
+                "Ana",
+                "Santos",
+                Especialidade.PEDIATRIA,
+                LocalDateTime.now().plusDays(6).withHour(10).withMinute(0) // Ajustado para o próximo domingo
+        );
+        try {
+            String resultado4 = agendaService.agendar(dadosConsulta4);
+            System.out.println("Teste 4: " + resultado4);
+        } catch (ValidacaoException e) {
+            System.out.println("Teste 4: " + e.getMessage());
         }
     }
 }

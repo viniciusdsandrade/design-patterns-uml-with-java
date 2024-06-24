@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class RepositorioAgendamentosEmMemoria implements RepositorioAgendamentos {
 
-    private List<DadosAgendamentoConsulta> agendamentos = new ArrayList<>();
+    private final List<DadosAgendamentoConsulta> agendamentos = new ArrayList<>();
 
     /**
      * {@inheritDoc}
