@@ -4,10 +4,10 @@ import validators.ValidadorHorarioAntecedencia;
 import validators.ValidadorHorarioFuncionamentoClinica;
 import dto.DadosAgendamentoConsulta;
 import enumerate.Especialidade;
-import service.AgendaServiceImplementado;
+import service.impl.AgendaServiceImplementado;
 import service.RepositorioAgendamentos;
-import Exception.ValidacaoException;
-import service.RepositorioAgendamentosEmMemoria;
+import exception.ValidacaoException;
+import service.impl.RepositorioAgendamentosEmMemoria;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

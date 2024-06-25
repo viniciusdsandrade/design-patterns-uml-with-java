@@ -1,7 +1,7 @@
 package validators;
 
 import dto.DadosAgendamentoConsulta;
-import Exception.ValidacaoException;
+import exception.ValidacaoException;
 
 /**
  * Interface que define o contrato para validadores de dados de agendamento de consulta.

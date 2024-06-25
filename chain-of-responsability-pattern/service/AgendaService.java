@@ -1,7 +1,7 @@
 package service;
 
 import dto.DadosAgendamentoConsulta;
-import Exception.ValidacaoException;
+import exception.ValidacaoException;
 
 /**
  * Interface que define o serviço de agendamento de consultas.

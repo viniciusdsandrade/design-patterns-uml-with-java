@@ -1,6 +1,7 @@
-package service;
+package service.impl;
 
 import dto.DadosAgendamentoConsulta;
+import service.RepositorioAgendamentos;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,9 @@
-package service;
+package service.impl;
 
+import service.AgendaService;
+import service.RepositorioAgendamentos;
 import validators.ValidadorAgendamentoConsulta;
-import Exception.ValidacaoException;
+import exception.ValidacaoException;
 import dto.DadosAgendamentoConsulta;
 
 import java.util.List;

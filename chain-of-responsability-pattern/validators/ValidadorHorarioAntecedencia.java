@@ -2,7 +2,7 @@ package validators;
 
 import dto.DadosAgendamentoConsulta;
 
-import Exception.ValidacaoException;
+import exception.ValidacaoException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
