@@ -2,6 +2,7 @@ package validators;
 
 import dto.DadosAgendamentoConsulta;
 import exception.ValidacaoException;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -15,7 +16,7 @@ public class ValidadorHorarioFuncionamentoClinica implements ValidadorAgendament
 
     /**
      * {@inheritDoc}
-     *
+     * <p>
      * Este validador verifica se o horário de agendamento está dentro do horário de funcionamento da clínica,
      * definido entre as 8h00 e 18h00.
      *
@@ -27,8 +28,7 @@ public class ValidadorHorarioFuncionamentoClinica implements ValidadorAgendament
         LocalDateTime dataHoraConsulta = dados.getDataHora();
 
         if (dataHoraConsulta.toLocalTime().isBefore(HORA_ABERTURA) ||
-                dataHoraConsulta.toLocalTime().isAfter(HORA_FECHAMENTO)) {
+                dataHoraConsulta.toLocalTime().isAfter(HORA_FECHAMENTO))
             throw new ValidacaoException("A clínica não funciona neste horário.");
-        }
     }
 }

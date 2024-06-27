@@ -45,7 +45,7 @@ public class SistemaAgendamentoConsultas {
                 "Maria",
                 "Souza",
                 Especialidade.DERMATOLOGIA,
-                LocalDateTime.now().plusMinutes(15)
+                LocalDateTime.now().plusMinutes(29)
         );
         try {
             String resultado2 = agendaService.agendar(dadosConsulta2);
@@ -73,7 +73,7 @@ public class SistemaAgendamentoConsultas {
                 "Ana",
                 "Santos",
                 Especialidade.PEDIATRIA,
-                LocalDateTime.now().plusDays(6).withHour(10).withMinute(0) // Ajustado para o próximo domingo
+                LocalDateTime.now().plusDays(4).withHour(10).withMinute(0) // Ajustado para o próximo domingo
         );
         try {
             String resultado4 = agendaService.agendar(dadosConsulta4);

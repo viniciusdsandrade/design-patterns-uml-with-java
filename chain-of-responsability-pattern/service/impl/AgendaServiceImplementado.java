@@ -15,6 +15,7 @@ import java.util.List;
  * para agendar uma consulta, realizando validações e persistindo os dados.
  */
 public class AgendaServiceImplementado implements AgendaService {
+
     private final List<ValidadorAgendamentoConsulta> validadores;
     private final RepositorioAgendamentos repositorio;
 
@@ -24,7 +25,8 @@ public class AgendaServiceImplementado implements AgendaService {
      * @param validadores Lista de validadores a serem aplicados aos dados de agendamento.
      * @param repositorio Repositório responsável por persistir os dados de agendamento.
      */
-    public AgendaServiceImplementado(List<ValidadorAgendamentoConsulta> validadores, RepositorioAgendamentos repositorio) {
+    public AgendaServiceImplementado(List<ValidadorAgendamentoConsulta> validadores,
+                                     RepositorioAgendamentos repositorio) {
         this.validadores = validadores;
         this.repositorio = repositorio;
     }
@@ -39,7 +41,8 @@ public class AgendaServiceImplementado implements AgendaService {
      */
     @Override
     public String agendar(DadosAgendamentoConsulta dados) throws ValidacaoException {
-        validadores.forEach(validador -> validador.validar(dados));
+        for (ValidadorAgendamentoConsulta validador : validadores)
+            validador.validar(dados);
         repositorio.salvar(dados);
         return "Agendamento realizado com sucesso!";
     }

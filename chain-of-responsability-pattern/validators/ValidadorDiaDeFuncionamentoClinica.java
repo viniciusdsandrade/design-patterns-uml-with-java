@@ -16,7 +16,7 @@ public class ValidadorDiaDeFuncionamentoClinica implements ValidadorAgendamentoC
 
     /**
      * {@inheritDoc}
-     *
+     * <p>
      * Este validador verifica se o dia de agendamento está dentro dos dias de funcionamento da clínica,
      * definido entre segunda-feira e sábado.
      *
@@ -29,9 +29,8 @@ public class ValidadorDiaDeFuncionamentoClinica implements ValidadorAgendamentoC
         DayOfWeek diaConsulta = dataHoraConsulta.getDayOfWeek();
 
         if (diaConsulta.getValue() < DIA_ABERTURA.getValue() ||
-                diaConsulta.getValue() > DIA_FECHAMENTO.getValue()) {
+                diaConsulta.getValue() > DIA_FECHAMENTO.getValue())
             throw new ValidacaoException("A clínica não funciona neste dia.");
-        }
     }
 }
 
