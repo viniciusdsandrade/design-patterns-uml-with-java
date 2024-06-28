@@ -3,7 +3,9 @@ package model;
 import java.util.Objects;
 
 /**
- * Classe que representa a entidade Raca.
+ * Representa a entidade "Raça", que possui um ID e um nome.
+ * <p>
+ * Esta classe implementa a interface {@link Cloneable} para permitir a criação de cópias.
  */
 public class Raca implements Cloneable {
 
@@ -24,16 +26,16 @@ public class Raca implements Cloneable {
     }
 
     /**
-     * Construtor padrão.
+     * Construtor padrão. Inicializa uma nova instância da raça com ID 0 e nome vazio.
      */
     public Raca() {
     }
 
     /**
-     * Construtor que inicializa a raça com um ID e nome.
+     * Construtor que inicializa a raça com o ID e nome fornecidos.
      *
-     * @param id   o ID da raça.
-     * @param nome o nome da raça.
+     * @param id   O ID da raça.
+     * @param nome O nome da raça.
      */
     public Raca(long id, String nome) {
         this.id = id;
@@ -41,9 +43,9 @@ public class Raca implements Cloneable {
     }
 
     /**
-     * Construtor de cópia.
+     * Construtor de cópia. Cria uma nova instância da raça com os mesmos dados da raça fornecida.
      *
-     * @param modelo a raça a ser copiada.
+     * @param modelo A raça a ser copiada.
      */
     public Raca(Raca modelo) {
         this.id = modelo.id;
@@ -51,60 +53,54 @@ public class Raca implements Cloneable {
     }
 
     /**
+     * {@inheritDoc}
+     * <p>
      * Cria e retorna uma cópia deste objeto.
-     *
-     * @return uma cópia deste objeto.
      */
     @Override
     public Object clone() {
-        Raca clone = null;
         try {
-            clone = new Raca(this);
+            return new Raca(this);
         } catch (Exception ignored) {
+            return null; // Em caso de erro, retorna null
         }
-        return clone;
     }
 
     /**
+     * {@inheritDoc}
+     * <p>
      * Calcula e retorna o código hash para este objeto.
-     *
-     * @return o código hash para este objeto.
      */
     @Override
     public int hashCode() {
         final int prime = 31;
         int hash = 1;
-
-        hash *= prime + (int) id;
-        hash *= prime + ((nome == null) ? 0 : nome.hashCode());
-
-        if (hash < 0) hash = -hash;
-
+        hash *= prime  + Long.hashCode(id);
+        hash *= prime  + ((nome == null) ? 0 : nome.hashCode());
         return hash;
     }
 
     /**
+     * {@inheritDoc}
+     * <p>
      * Compara este objeto com o objeto especificado.
-     *
-     * @param obj o objeto a ser comparado.
-     * @return {@code true} se os objetos são iguais; {@code false} caso contrário.
      */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null) return false;
-        if (this.getClass() != obj.getClass()) return false;
+        if(this.getClass() != obj.getClass()) return false;
 
-        Raca other = (Raca) obj;
+        Raca that = (Raca) obj;
 
-        return Objects.equals(this.id, other.id) &&
-                Objects.equals(this.nome, other.nome);
+        return this.id == that.id &&
+                Objects.equals(this.nome, that.nome);
     }
 
     /**
-     * Retorna uma representação em string deste objeto.
-     *
-     * @return uma representação em string deste objeto.
+     * {@inheritDoc}
+     * <p>
+     * Retorna uma representação em string deste objeto no formato "ID - Nome".
      */
     @Override
     public String toString() {

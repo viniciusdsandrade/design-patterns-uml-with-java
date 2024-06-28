@@ -9,16 +9,19 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Controlador para gerenciar as operações CRUD da entidade Raca.
+ * Controlador responsável por gerenciar as interações do usuário com as operações relacionadas à entidade `Raca`.
+ * <p>
+ * Esta classe recebe as ações do usuário, delega as operações de negócio para o `RacaService`
+ * e apresenta os resultados ao usuário.
  */
 public class RacaController {
     private final RacaService racaService;
     private final Scanner scanner;
 
     /**
-     * Construtor que inicializa o serviço de Raca e o scanner para entrada do usuário.
+     * Construtor da classe `RacaController`.
      *
-     * @param connection a conexão com o banco de dados.
+     * @param connection A conexão com o banco de dados.
      */
     public RacaController(Connection connection) {
         this.racaService = new RacaService(connection);
@@ -26,7 +29,8 @@ public class RacaController {
     }
 
     /**
-     * Método principal que executa o loop de entrada do usuário para operações CRUD.
+     * Inicia o loop principal de interação com o usuário,
+     * apresentando um menu de opções e processando as escolhas do usuário.
      */
     public void run() {
         while (true) {
@@ -38,7 +42,7 @@ public class RacaController {
             System.out.println("5. Sair");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consumir a nova linha
+            scanner.nextLine();
 
             try {
                 switch (choice) {
@@ -67,9 +71,9 @@ public class RacaController {
     }
 
     /**
-     * Cria uma nova raça solicitando o nome ao usuário.
+     * Solicita ao usuário os dados da nova raça e a cria utilizando o `RacaService`.
      *
-     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     * @throws SQLException Se ocorrer um erro ao acessar o banco de dados.
      */
     private void createRaca() throws SQLException {
         System.out.println("Digite o nome da raça:");
@@ -79,14 +83,14 @@ public class RacaController {
     }
 
     /**
-     * Lê uma raça específica solicitando o ID ao usuário.
+     * Solicita ao usuário o ID da raça e a exibe, caso exista.
      *
-     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     * @throws SQLException Se ocorrer um erro ao acessar o banco de dados.
      */
     private void readRaca() throws SQLException {
         System.out.println("Digite o ID da raça:");
         long id = scanner.nextLong();
-        scanner.nextLine(); // Consumir a nova linha
+        scanner.nextLine();
 
         Raca raca = racaService.getRaca(id);
         if (raca != null) {
@@ -98,24 +102,24 @@ public class RacaController {
     }
 
     /**
-     * Lê todas as raças e as imprime.
+     * Exibe todas as raças existentes no banco de dados.
      *
-     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     * @throws SQLException Se ocorrer um erro ao acessar o banco de dados.
      */
     private void readAllRacas() throws SQLException {
         List<Raca> racas = racaService.getAllRacas();
-        racas.stream().map(raca -> "ID: " + raca.getId() + ", Nome: " + raca.getNome()).forEach(System.out::println);
+        racas.forEach(raca -> System.out.println("ID: " + raca.getId() + ", Nome: " + raca.getNome()));
     }
 
     /**
-     * Deleta uma raça específica solicitando o ID ao usuário.
+     * Solicita ao usuário o ID da raça e a remove, caso exista.
      *
-     * @throws SQLException se ocorrer um erro ao acessar o banco de dados.
+     * @throws SQLException Se ocorrer um erro ao acessar o banco de dados.
      */
     private void deleteRaca() throws SQLException {
         System.out.println("Digite o ID da raça:");
         long id = scanner.nextLong();
-        scanner.nextLine(); // Consumir a nova linha
+        scanner.nextLine();
 
         racaService.deleteRaca(id);
         System.out.println("Raça deletada com sucesso!");
