@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Controlador responsável por gerenciar as interações do usuário com as operações relacionadas à entidade `Raca`.
+ * Controlador responsável por gerenciar as interações do usuário com as operações relacionadas à entidade 'Raca'.
  * <p>
- * Esta classe recebe as ações do usuário, delega as operações de negócio para o `RacaService`
+ * Esta classe recebe as ações do usuário, delega as operações de negócio para o 'RacaService'
  * e apresenta os resultados ao usuário.
  */
 public class RacaController {
@@ -71,7 +71,7 @@ public class RacaController {
     }
 
     /**
-     * Solicita ao usuário os dados da nova raça e a cria utilizando o `RacaService`.
+     * Solicita ao usuário os dados da nova raça e a cria utilizando o 'RacaService'.
      *
      * @throws SQLException Se ocorrer um erro ao acessar o banco de dados.
      */

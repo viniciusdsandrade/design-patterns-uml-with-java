@@ -15,12 +15,15 @@ public class Raca implements Cloneable {
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -59,11 +62,14 @@ public class Raca implements Cloneable {
      */
     @Override
     public Object clone() {
+        Raca clone = null;
+
         try {
-            return new Raca(this);
+            clone = new Raca(this);
         } catch (Exception ignored) {
-            return null; // Em caso de erro, retorna null
         }
+
+        return clone;
     }
 
     /**
@@ -75,8 +81,8 @@ public class Raca implements Cloneable {
     public int hashCode() {
         final int prime = 31;
         int hash = 1;
-        hash *= prime  + Long.hashCode(id);
-        hash *= prime  + ((nome == null) ? 0 : nome.hashCode());
+        hash *= prime + Long.hashCode(id);
+        hash *= prime + ((nome == null) ? 0 : nome.hashCode());
         return hash;
     }
 
@@ -89,7 +95,7 @@ public class Raca implements Cloneable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null) return false;
-        if(this.getClass() != obj.getClass()) return false;
+        if (this.getClass() != obj.getClass()) return false;
 
         Raca that = (Raca) obj;
 

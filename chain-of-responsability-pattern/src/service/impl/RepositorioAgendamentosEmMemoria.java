@@ -14,11 +14,18 @@ import java.util.List;
  */
 public class RepositorioAgendamentosEmMemoria implements RepositorioAgendamentos {
 
-    private final List<DadosAgendamentoConsulta> agendamentos = new ArrayList<>();
+    private final List<DadosAgendamentoConsulta> agendamentos;
+
+    /**
+     * Constrói uma nova instância do repositório de agendamentos em memória.
+     */
+    public RepositorioAgendamentosEmMemoria() {
+        agendamentos = new ArrayList<>();
+    }
 
     /**
      * {@inheritDoc}
-     *
+     * <p>
      * Este método adiciona os dados de agendamento fornecidos à lista
      * de agendamentos mantida em memória.
      */

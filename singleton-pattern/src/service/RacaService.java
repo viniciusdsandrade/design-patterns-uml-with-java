@@ -8,16 +8,16 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Serviço que encapsula as operações de negócio relacionadas à entidade `Raca`.
+ * Serviço que encapsula as operações de negócio relacionadas à entidade 'Raca'.
  * <p>
- * Esta classe fornece uma camada de abstração sobre o DAO (`RacaDAO`),
+ * Esta classe fornece uma camada de abstração sobre o DAO ('RacaDAO'),
  * expondo métodos para interagir com dados de raças no banco de dados.
  */
 public class RacaService {
     private final RacaDAO racaDAO;
 
     /**
-     * Construtor da classe `RacaService`.
+     * Construtor da classe 'RacaService'.
      *
      * @param connection A conexão com o banco de dados.
      */
@@ -41,7 +41,7 @@ public class RacaService {
      * Retorna a raça correspondente ao ID fornecido.
      *
      * @param id O ID da raça a ser buscada.
-     * @return A raça encontrada, ou `null` se não existir raça com o ID informado.
+     * @return A raça encontrada, ou 'null' se não existir raça com o ID informado.
      * @throws SQLException Se ocorrer um erro ao acessar o banco de dados.
      */
     public Raca getRaca(long id) throws SQLException {
