@@ -46,23 +46,15 @@ public class RacaController {
 
             try {
                 switch (choice) {
-                    case 1:
-                        createRaca();
-                        break;
-                    case 2:
-                        readRaca();
-                        break;
-                    case 3:
-                        readAllRacas();
-                        break;
-                    case 4:
-                        deleteRaca();
-                        break;
-                    case 5:
+                    case 1 -> createRaca();
+                    case 2 -> readRaca();
+                    case 3 -> readAllRacas();
+                    case 4 -> deleteRaca();
+                    case 5 -> {
                         System.out.println("Saindo...");
                         return;
-                    default:
-                        System.out.println("Opção inválida!");
+                    }
+                    default -> System.out.println("Opção inválida!");
                 }
             } catch (SQLException e) {
                 System.err.println("Erro: " + e.getMessage());

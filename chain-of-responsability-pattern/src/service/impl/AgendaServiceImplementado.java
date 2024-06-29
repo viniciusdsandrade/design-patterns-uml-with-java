@@ -41,8 +41,7 @@ public class AgendaServiceImplementado implements AgendaService {
      */
     @Override
     public String agendar(DadosAgendamentoConsulta dados) throws ValidacaoException {
-        for (ValidadorAgendamentoConsulta validador : validadores)
-            validador.validar(dados);
+        validadores.forEach(validador -> validador.validar(dados));
         repositorio.salvar(dados);
         return "Agendamento realizado com sucesso!";
     }

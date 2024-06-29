@@ -37,9 +37,8 @@ public class RacaDAO {
             stmt.executeUpdate();
 
             try (ResultSet rs = stmt.getGeneratedKeys()) {
-                if (rs.next()) {
+                if (rs.next())
                     raca.setId(rs.getLong(1));
-                }
             }
         }
     }
